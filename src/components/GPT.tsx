@@ -47,66 +47,63 @@ const GPT = () => {
   };
 
   return (
-    <div>
-      <div className="container-fluid bg-secondary text-light p-4">
-        <div className="row">
-          {messages.map((value, index) => {
-            if (value.role === "system") {
-              return (
-                <>
-                  <div className="card bg-secondary border-secondary text-light">
-                    <div className="row g-0">
-                      <div className="col-1 text-center">
-                        <i className="bi bi-gear fs-3"></i>
-                      </div>
-                      <div className="col">
-                        <div className="card-body">
-                          <p key={index}>{value.content}</p>
-                        </div>
+    <div className="container-fluid bg-secondary text-light p-4 h-100">
+      <div className="row">
+        {messages.map((value, index) => {
+          if (value.role === "system") {
+            return (
+              <>
+                <div className="card bg-secondary border-secondary text-light">
+                  <div className="row g-0">
+                    <div className="col-1 text-center">
+                      <i className="bi bi-gear fs-3"></i>
+                    </div>
+                    <div className="col">
+                      <div className="card-body">
+                        <p key={index}>{value.content}</p>
                       </div>
                     </div>
                   </div>
-                </>
-              );
-            } else if (value.role === "user") {
-              return (
-                <>
-                  <div className="card bg-secondary border-secondary text-light">
-                    <div className="row g-0">
-                      <div className="col-1 text-center">
-                        <i className="bi bi-emoji-smile-upside-down fs-3"></i>
-                      </div>
-                      <div className="col">
-                        <div className="card-body">
-                          <p key={index}>{value.content}</p>
-                        </div>
+                </div>
+              </>
+            );
+          } else if (value.role === "user") {
+            return (
+              <>
+                <div className="card bg-secondary border-secondary text-light">
+                  <div className="row g-0">
+                    <div className="col-1 text-center">
+                      <i className="bi bi-emoji-smile-upside-down fs-3"></i>
+                    </div>
+                    <div className="col">
+                      <div className="card-body">
+                        <p key={index}>{value.content}</p>
                       </div>
                     </div>
                   </div>
-                </>
-              );
-            } else {
-              return (
-                <>
-                  <div className="card bg-secondary border-secondary text-light">
-                    <div className="row g-0">
-                      <div className="col-1 text-center">
-                        <i className="bi bi-cpu fs-3"></i>
-                      </div>
-                      <div className="col">
-                        <div className="card-body">
-                          <p key={index}>{value.content}</p>
-                        </div>
+                </div>
+              </>
+            );
+          } else {
+            return (
+              <>
+                <div className="card bg-secondary border-secondary text-light">
+                  <div className="row g-0">
+                    <div className="col-1 text-center">
+                      <i className="bi bi-cpu fs-3"></i>
+                    </div>
+                    <div className="col">
+                      <div className="card-body">
+                        <p key={index}>{value.content}</p>
                       </div>
                     </div>
                   </div>
-                </>
-              );
-            }
-          })}
-        </div>
+                </div>
+              </>
+            );
+          }
+        })}
       </div>
-
       <div className="input-group mb-3">
         <input
           type="text"
@@ -126,7 +123,7 @@ const GPT = () => {
           {requesting ? "Requesting" : "Generate"}
         </button>
         <button
-          className="btn btn btn-outline-secondary"
+          className="btn btn btn-primary"
           type="button"
           onClick={() =>
             setMessages([
