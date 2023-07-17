@@ -1,5 +1,5 @@
 import { Configuration, OpenAIApi } from "openai";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 interface Message {
@@ -11,7 +11,7 @@ const MODEL_NAME = "gpt-3.5-turbo-0613";
 
 const GPT = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { role: "system", content: "You are a helpful assistant." },
+    { role: "system", content: "You are my helpful secretary." },
   ]);
   const [text, setText] = useState("");
   const [requesting, setRequesting] = useState(false);
@@ -54,33 +54,51 @@ const GPT = () => {
             if (value.role === "system") {
               return (
                 <>
-                  <div className="col-1">
-                    <i className="bi bi-gear"></i>
-                  </div>
-                  <div className="col-11">
-                    <div key={index}>{value.content}</div>
+                  <div className="card bg-secondary border-secondary text-light">
+                    <div className="row g-0">
+                      <div className="col-1 text-center">
+                        <i className="bi bi-gear fs-3"></i>
+                      </div>
+                      <div className="col">
+                        <div className="card-body">
+                          <p key={index}>{value.content}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </>
               );
             } else if (value.role === "user") {
               return (
                 <>
-                  <div className="col-1">
-                    <i className="bi bi-emoji-smile-upside-down"></i>
-                  </div>
-                  <div className="col-11">
-                    <div key={index}>{value.content}</div>
+                  <div className="card bg-secondary border-secondary text-light">
+                    <div className="row g-0">
+                      <div className="col-1 text-center">
+                        <i className="bi bi-emoji-smile-upside-down fs-3"></i>
+                      </div>
+                      <div className="col">
+                        <div className="card-body">
+                          <p key={index}>{value.content}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </>
               );
             } else {
               return (
                 <>
-                  <div className="col-1">
-                    <i className="bi bi-cpu"></i>
-                  </div>
-                  <div className="col-11">
-                    <div key={index}>{value.content}</div>
+                  <div className="card bg-secondary border-secondary text-light">
+                    <div className="row g-0">
+                      <div className="col-1 text-center">
+                        <i className="bi bi-cpu fs-3"></i>
+                      </div>
+                      <div className="col">
+                        <div className="card-body">
+                          <p key={index}>{value.content}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </>
               );
